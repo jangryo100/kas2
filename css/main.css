@@ -1,0 +1,989 @@
+@charset "utf-8";
+@import url(reset.css);
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700&display=swap');
+
+/*
+font-family: 'Noto Sans KR', sans-serif;
+*/
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+/*비디오박스*/
+
+#videoBox {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+}
+
+#videoBox img {
+    display: none;
+}
+
+video {
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#videoBox .opc {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#videoBox .opc .videoBg {
+    width: 100%;
+    min-width: 1700px;
+    height: auto;
+    overflow: hidden;
+    z-index: -9999;
+}
+
+#videoBox .videoText {
+    z-index: 9;
+    position: absolute;
+    top: 50%;
+    left: 25px;
+    transform: translateY(-50%)
+}
+
+#videoBox .videoText > p {
+    color: #fff;
+    line-height: 3.3em;
+}
+
+#videoBox .videoText > p > .text-1 {
+    font-size: 40px;
+    font-weight: 400;
+    margin-left: 10px;
+    opacity: 0;
+    animation: fade-in-down 1.5s forwards;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#videoBox .videoText > p > .text-2 {
+    opacity: 0;
+    font-size: 62px;
+    font-weight: 700;
+    animation: fade-in-up 1.5s 1.5s forwards;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+@keyframes fade-in-up {
+    0% {
+        top: 50px;
+        opacity: 0;
+    }
+
+    100% {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in-down {
+    0% {
+        top: -50px;
+        opacity: 0;
+    }
+
+    100% {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+
+/*네비게이션*/
+.navBox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    height: 63px;
+}
+
+.navBox.on {
+    box-shadow: 0 8px 6px -6px #aaa;
+}
+
+#header .navBox .nav {
+    display: block;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+
+#header .navBox .nav2 {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: none;
+}
+
+#header .navBox .nav h1,
+#header .navBox .nav2 h1 {
+    float: left;
+    width: 200px;
+    margin-top: 6px;
+}
+
+#header .navBox .nav2 .navBox,
+#header .navBox .nav2 .navBox2 {
+    float: left;
+
+}
+
+#header .navBox .nav > .box1,
+#header .navBox .nav2 > .box2 {
+    float: right;
+    width: 50%;
+    text-align: center;
+    margin-top: 7px;
+}
+
+#header .navBox .nav .box1 > ul,
+#header .navBox .nav2 .box2 > ul {
+    z-index: 9999;
+}
+
+#header .navBox .nav ul > li.menu,
+#header .navBox .nav2 ul > li.menu {
+    float: left;
+    width: 25%;
+    margin-top: 10px;
+    position: relative;
+}
+
+#header .navBox .nav ul > li.menu > a {
+    color: #fff;
+    font-size: 20px;
+    position: relative;
+}
+
+#header .navBox .nav ul > li.menu > a.on {
+    color: #17469E;
+}
+
+#header .navBox .nav2 ul > li.menu > a,
+#header .menu ul li > a {
+    font-size: 20px;
+    position: relative;
+}
+
+#header .navBox .nav2 .box2 > ul > li.menu:hover > a,
+#header .menu ul li > a:hover {
+    transition: all 0.5s;
+    color: #17469E;
+
+}
+
+#header .navBox .nav .box1 > ul > li.menu:hover > a,
+#header .menu ul li > a:hover {
+    transition: all 0.5s;
+    color: #fff;
+
+}
+
+.underline > a:after {
+    content: "";
+    display: inline-block;
+    width: 0%;
+    height: 3px;
+    background: #fff;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%);
+    overflow: hidden;
+    transition: all 0.5s;
+    z-index: 99999;
+}
+
+.underline:hover > a:after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%);
+    overflow: hidden;
+    transition: all 0.5s;
+    z-index: 99999;
+}
+
+.underlineB > a:after {
+    content: "";
+    display: inline-block;
+    width: 0%;
+    height: 3px;
+    background: #17469E;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%);
+    overflow: hidden;
+    transition: all 0.5s;
+    z-index: 99999;
+}
+
+.underlineB:hover > a:after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 3px;
+    background: #17469E;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%);
+    overflow: hidden;
+    transition: all 0.5s;
+    z-index: 99999;
+}
+
+#header .menu ul {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+}
+
+#header .menu ul li {
+    margin-top: 18px
+}
+
+#header .box1 .menu ul li a {
+    color: #fff;
+}
+
+#header .menu ul li a {
+    font-size: 14px;
+}
+
+
+.decoBox2 {
+    width: 100%;
+    height: 320px;
+    position: absolute;
+    top: 63px;
+    left: 0;
+    display: none;
+}
+
+.decoBox2.on {
+    box-shadow: 0 8px 6px -6px #aaa;
+}
+
+
+/*햄버거버튼*/
+
+button.hamburger {
+    flex-grow: 0;
+    position: relative;
+    border: 0;
+    background-color: rgba(0, 0, 0, 0);
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+    float: right;
+    margin-right: 10px;
+    margin-top: 15px;
+    display: none;
+}
+
+button.hamburger:focus {
+    outline: 0;
+}
+
+button.hamburger .bar {
+    position: absolute;
+    left: 0;
+    width: 40px;
+    height: 6px;
+    background-color: #fff;
+    transition: top 0.2s ease-in-out 0.2s, transform 0.2s ease-in-out 0s;
+}
+
+button.hamburger .bar.top {
+    top: 0;
+}
+
+button.hamburger .bar.middle {
+    transform: translateY(-50%);
+    transition: opacity 1ms linear 0.2s;
+}
+
+button.hamburger .bar.bottom {
+    top: 24px;
+}
+
+button.hamburger.open .bar {
+    transition: top 0.2s ease-in-out 0s, transform 0.2s ease-in-out 0.2s;
+}
+
+button.hamburger.open .bar.top {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+button.hamburger.open .bar.middle {
+    opacity: 0;
+    transition: opacity 1ms linear 0.2s;
+}
+
+button.hamburger.open .bar.bottom {
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg);
+}
+
+
+/*모바일메뉴*/
+
+.mobiMenu {
+    background: #17469E;
+    width: 100%;
+    position: absolute;
+    top: 63px;
+    right: 0;
+    padding-bottom: 30px;
+    display: none;
+}
+
+.mobiMenu > ul {
+    text-align: center;
+}
+
+.mobiMenu > ul > li {
+    margin-top: 30px;
+}
+
+.mobiMenu > ul > li > ul {
+    display: none;
+    margin-top: 15px;
+}
+
+.mobiMenu > ul > li > ul > li {
+    float: left;
+    width: 33.33%;
+}
+
+.mobiMenu > ul > li > a {
+    font-size: 24px;
+}
+
+.mobiMenu a {
+    color: #fff;
+}
+
+
+/*Section*/
+#section {}
+
+
+#section .bArea h3,
+#section .social h3 {
+    margin: 0 auto;
+    padding: 150px 0 0 0;
+    font-size: 70px;
+    font-weight: 900;
+    border-bottom: 5px solid #17469E;
+    width: 300px;
+    text-align: center;
+    color: #17469E;
+}
+
+#section .bArea > p,
+#section .social > p {
+    text-align: center;
+    color: #17469E;
+    font-size: 18px;
+    font-weight: 700;
+    padding-top: 15px;
+}
+
+#section .bArea ul {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+#section .bArea ul li {
+    border: 1px solid #999;
+    width: 160px;
+    height: 50px;
+    line-height: 46px;
+    margin-right: 10px;
+    display: inline-block;
+
+}
+
+#section .bArea ul li a {
+    display: block;
+    font-size: 16px;
+}
+
+#section .bArea ul li.on {
+    background-color: #17469E;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#section .bArea ul > li:nth-child(6) {
+    margin-right: 0;
+}
+
+#section .bArea .bAreaBtn {
+    margin-top: 150px;
+}
+
+#section .bArea .bContentBox {
+    width: 100%;
+    height: 600px;
+    position: relative;
+    overflow: hidden;
+}
+
+#section .bArea > .bContentBox > .bAreaCt {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: all 0.5s
+}
+
+#section .bArea > .bContentBox > .bAreaCt.on {
+    opacity: 1;
+}
+
+#section .bArea .bAreaCt > p {
+    font-size: 24px;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 50px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 0 8px;
+}
+
+#section .bArea > .bContentBox > .ct01 {
+    background: url('../img/contant01.jpg') no-repeat center center;
+
+}
+
+#section .bArea > .bContentBox > .ct02 {
+    background: url(../img/content02.jpg) no-repeat center center;
+
+}
+
+#section .bArea > .bContentBox > .ct03 {
+    background: url(../img/content03.jpg) no-repeat center center;
+
+}
+
+#section .bArea > .bContentBox > .ct04 {
+    background: url(../img/content04.jpg) no-repeat center center;
+
+}
+
+#section .bArea > .bContentBox > .ct05 {
+    background: url(../img/content05.jfif) no-repeat center center;
+
+}
+
+#section .bArea > .bContentBox > .ct06 {
+    background: url(../img/content06.jpg) no-repeat center center;
+}
+
+#section .social .socialContent {
+    margin-top: 150px;
+    padding: 0 20px;
+}
+
+#section .social .socialContent > div {
+    width: 32.6666%;
+    float: left;
+    height: 350px;
+    position: relative;
+    margin-bottom: 20px;
+    transition: all 0.5s;
+    overflow: hidden;
+}
+
+
+#section .social .socialContent > div .img-holder {
+    transition: all 0.5s;
+    width: 100%;
+    height: 100%;
+}
+
+#section .social .socialContent > div > .img-holder::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+#section .social .socialContent > div > p {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 24px;
+    color: #fff;
+    opacity: 0;
+    transition: all 0.5s 0.2s;
+    width: 100%;
+}
+
+
+#section .social .socialContent .scbox1 > .img-holder {
+    background: url(../img/social01.jpg) center;
+    background-size: cover;
+}
+
+
+#section .social .socialContent .scbox2 > .img-holder {
+    background: url(../img/social02.jpg) center;
+    background-size: cover;
+}
+
+#section .social .socialContent .scbox3 > .img-holder {
+    background: url(../img/social03.png) center;
+    background-size: cover;
+}
+
+#section .social .socialContent .scbox4 > .img-holder {
+    background: url(../img/social04.jfif) center;
+    background-size: cover;
+}
+
+#section .social .socialContent .scbox5 > .img-holder {
+    background: url(../img/social05.jfif) center;
+    background-size: cover;
+}
+
+#section .social .socialContent .scbox6 > .img-holder {
+    background: url(../img/social06.png) center;
+    background-size: cover;
+}
+
+#section .social .socialContent .scbox2,
+#section .social .socialContent .scbox5 {
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+#section .social .socialContent > div:hover .img-holder {
+    transform: scale(1.1);
+}
+
+#section .social .socialContent > div:hover .img-holder::before {
+    opacity: 1;
+    transition: all 0.5s;
+}
+
+#section .social .socialContent > div:hover > p {
+    opacity: 1;
+    top: 50%;
+    transition: all 0.5s 0.2s;
+}
+
+
+#section .more-btn {
+    text-align: center;
+}
+
+#section .more-btn > button {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    background: #17469E;
+    color: #fff;
+    font-size: 24px;
+    display: none;
+}
+
+/*footer*/
+
+
+#footer {
+    height: 250px;
+    background-color: #17469E;
+    color: #fff;
+    font-weight: 400;
+    margin-top: 200px;
+}
+
+#footer .fContent {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1280px;
+    /*    border: 1px solid #fff;*/
+    padding-top: 20px;
+    text-align: center;
+    position: relative;
+}
+
+#footer .fContent > ul {
+    margin: 0 auto;
+    display: inline-block;
+    margin-top: 50px;
+}
+
+#footer .fContent > ul > li {
+    font-size: 11px;
+    float: left;
+    border-left: 1px solid #fff;
+    padding: 0 20px;
+    margin-bottom: 60px;
+}
+
+#footer .fContent > ul > li:nth-child(1) {
+    border: none;
+    padding-left: 0;
+}
+
+#footer .fContent p {
+    clear: both;
+    font-size: 12px;
+    padding-bottom: 5px;
+}
+
+
+#footer .fContent .stm {
+    position: absolute;
+    width: 150px;
+    height: 25px;
+    top: 20px;
+    right: 0;
+    background: none;
+}
+
+#footer .fContent button {
+    background: none;
+    border: none;
+    color: #fff;
+    width: 100%;
+    height: 25px;
+    border: 1px solid #fff;
+}
+
+#footer .fContent .stm ul {
+    width: 100%;
+    position: absolute;
+    bottom: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: #17469E;
+    border: 1px solid #fff;
+    display: none;
+}
+
+#footer .fContent .stm ul li {
+    margin: 3px 0;
+}
+
+@media screen and (max-width: 1028px) {
+    #section .bArea ul li {
+        float: left;
+        width: 31.3333%;
+        height: 45px;
+        line-height: 42px;
+        margin: 1%;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 760px) {
+
+
+    .mBg {
+        width: 100%;
+        height: 100%;
+        background: url(../img/mobileBg.jfif) center center;
+        background-size: cover;
+    }
+
+    video {
+        display: none;
+    }
+
+
+    #header .navBox .nav > .box1 {
+        display: none;
+    }
+
+
+    button.hamburger {
+        flex-grow: 0;
+        position: relative;
+        border: 0;
+        background-color: rgba(0, 0, 0, 0);
+        width: 40px;
+        height: 30px;
+        cursor: pointer;
+        float: right;
+        margin-right: 10px;
+        margin-top: 15px;
+        display: block;
+    }
+
+
+    #videoBox .videoText {
+        z-index: 9;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+    }
+
+    #videoBox .videoText > p {
+        color: #fff;
+        line-height: 2em;
+        text-align: center;
+    }
+
+    #videoBox .videoText > p > .text-1 {
+        font-size: 18px;
+        font-weight: 400;
+        margin: 0;
+    }
+
+    #videoBox .videoText > p > .text-2 {
+        font-size: 32px;
+        font-weight: 700;
+    }
+
+    /*Section*/
+    #section .bArea h3,
+    #section .social h3 {
+        margin: 0 auto;
+        padding: 80px 0 0 0;
+        font-size: 32px;
+        font-weight: 900;
+        border-bottom: 2px solid #17469E;
+        width: 150px;
+        text-align: center;
+        color: #17469E;
+    }
+
+    #section .bArea > p,
+    #section .social > p {
+        text-align: center;
+        color: #17469E;
+        font-size: 12px;
+        font-weight: 700;
+        padding-top: 8px;
+    }
+
+    #section .bArea .bAreaBtn {
+        margin-top: 80px;
+    }
+
+    #section .bArea ul {
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    #section .bArea ul li {
+        float: left;
+        width: 31.3333%;
+        height: 45px;
+        line-height: 42px;
+        margin: 1%;
+        display: block;
+    }
+
+    #section .bArea ul li a {
+        font-size: 12px;
+    }
+
+
+    /*사업분야별 이미지*/
+    #section .bArea .bContentBox {
+        width: 100%;
+        height: 200px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    #section .bArea > .bContentBox > .bAreaCt {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        background-size: cover;
+        transition: all 0.5s
+    }
+
+
+    #section .bArea .bAreaCt > p {
+        font-size: 16px;
+        color: #fff;
+        position: absolute;
+        top: 50%;
+        transform: translateY(0%);
+        margin-left: 8px;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 0 8px;
+    }
+
+
+    /*사회활동 반응형 박스 */
+    #section .social .socialContent > div {
+        width: 100%;
+        float: left;
+        position: relative;
+        margin-bottom: 20px;
+        overflow: hidden;
+        border: 4px solid #17469E;
+        height: 200px;
+        display: none;
+        transition: none;
+    }
+
+    #section .social .socialContent > div:nth-of-type(1) {
+        display: block;
+    }
+
+    #section .social .socialContent > div .img-holder {
+        transition: none;
+        width: 65%;
+        height: 100%;
+        border-right: 4px solid #17469E;
+    }
+
+    #section .social .socialContent > div .img-holder::before {
+        display: none;
+    }
+
+
+    #section .social .socialContent > div > p {
+        position: absolute;
+        top: 50%;
+        left: 65%;
+        transform: translate(0%, -50%);
+        text-align: center;
+        color: #000;
+        opacity: 1;
+        transition: none;
+        width: 35%;
+        font-size: 14px;
+    }
+
+    #section .more-btn > button {
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        background: #17469E;
+        color: #fff;
+        font-size: 24px;
+        display: block;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+
+
+    #section .social .socialContent .scbox1,
+    #section .social .socialContent .scbox3 {
+        margin-right: 1%;
+    }
+
+    #section .social .socialContent .scbox2,
+    #section .social .socialContent .scbox5 {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #section .social .socialContent > div:hover .img-holder {
+        transform: scale(1);
+    }
+
+
+    #footer {
+        height: auto;
+        background-color: #17469E;
+        color: #fff;
+        font-weight: 400;
+        margin-top: 200px;
+    }
+
+    #footer .fContent {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 1280px;
+        /*    border: 1px solid #fff;*/
+        padding-top: 20px;
+        text-align: center;
+        position: relative;
+    }
+
+    #footer .fContent > ul {
+        margin: 0 auto;
+        display: inline-block;
+        margin-top: 50px;
+    }
+
+    #footer .fContent > ul > li {
+        font-size: 11px;
+        float: left;
+        border-left: 1px solid #fff;
+        padding: 0 10px;
+        margin-bottom: 60px;
+    }
+
+    #footer .fContent > ul > li:nth-child(1) {
+        border: none;
+        padding-left: 0;
+    }
+
+    #footer .fContent p {
+        clear: both;
+        font-size: 12px;
+        padding-bottom: 5px;
+    }
+
+
+}
